@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "manage.py", "use": "@vercel/python" },
+    { "src": "staticfiles/**/*", "use": "@vercel/static" },
+    { "src": "templates/**/*", "use": "@vercel/static" },
+    { "src": "tcc_website/**/*", "use": "@vercel/python" },
+    { "src": "tcc_website/**/**/*", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
+    { "src": "/(.*)", "dest": "manage.py" },
+    { "src": "/tcc_website/(.*)", "dest": "manage.py" }
+
+  ]
+}

@@ -1,0 +1,44 @@
+<!-- templates/cricket/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuraiyur Cricket Council - {% block title %}{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-blue-900 text-white">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold">
+                    Thuraiyur Cricket Council
+                </div>
+                <div class="space-x-6">
+                    <a href="{% url 'cricket:home' %}" class="hover:text-blue-300">Home</a>
+                    <a href="{% url 'cricket:players' %}" class="hover:text-blue-300">Players</a>
+                    <a href="{% url 'cricket:matches' %}" class="hover:text-blue-300">Matches</a>
+                    <a href="{% url 'cricket:news' %}" class="hover:text-blue-300">News</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="container mx-auto px-6 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white mt-12">
+        <div class="container mx-auto px-6 py-4">
+            <div class="text-center">
+                <p>&copy; 2025 Thuraiyur Cricket Council. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

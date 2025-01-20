@@ -1,0 +1,25 @@
+{% extends 'cricket/base.html' %}
+
+{% block title %}Players{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">Our Players</h1>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {% for player in players %}
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+        {% if player.image %}
+        <img src="{{ player.image.url }}" alt="{{ player.name }}" class="w-full h-64 object-cover">
+        {% endif %}
+        <div class="p-4">
+            <h2 class="text-xl font-bold">{{ player.name }}</h2>
+            <div class="text-gray-600">#{{ player.jersey_number }} - {{ player.get_role_display }}</div>
+            <div class="mt-2">
+                <div>Matches: {{ player.matches_played }}</div>
+                <div>Runs: {{ player.runs_scored }}</div>
+                <div>Wickets: {{ player.wickets_taken }}</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
